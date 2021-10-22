@@ -41,7 +41,7 @@ public class Main {
 		numerosPrimosFuncional(numeros);
 		
 //		System.out.println(numeros.stream().filter(x -> x%2==0).mapToInt(x -> x).sum());
-		sumaNoPrimos(numeros);
+		sumaPares(numeros);
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class Main {
 		System.out.println(primos);		
 	}
 	
-	public static void sumaNoPrimos(List<Integer> numeros) {
+	public static void sumaPares(List<Integer> numeros) {
 		int sumaPares = numeros.stream().reduce(0, Operaciones::sumaPares);
 		
 		System.out.println(sumaPares);
