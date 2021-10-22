@@ -11,8 +11,7 @@ public class Main {
 	public class Operaciones {
 		public static boolean esPrimo(int numero)  {
 			// Para todo el rango 2 -> numero, aplica un filtro calculando el resto de la division del numero y todos los valores menores mayores que 1,
-			// pasando el filtro unicamente los que sean numeros primos, si el resultado obtenido es igual al numero recibido por parametro, es primo
-			
+			// pasando el filtro unicamente los que sean numeros primos, si el resultado obtenido es igual al numero recibido por parametro, es primo			
 			int res = IntStream.rangeClosed(2, numero).filter(x -> numero % x == 0).sum();
 
 			if (res > numero)
