@@ -10,8 +10,6 @@ public class Main {
 	
 	public class Operaciones {
 		public static boolean esPrimo(int numero)  {
-			// Genera una lista desde 2 a numero		
-			
 			// Para todo el rango 2 -> numero, aplica un filtro calculando el resto de la division del numero y todos los valores menores mayores que 1,
 			// pasando el filtro unicamente los que sean numeros primos, si el resultado obtenido es igual al numero recibido por parametro, es primo
 			
