@@ -25,6 +25,7 @@ public class Main {
 		List<Integer> numeros = Stream.iterate(1, n -> n + 1).limit(10).collect(Collectors.toList());
 		List<String> nombres = new ArrayList<>(Arrays.asList("juan", "pepe", "juanma", "alex"));
 		
+		numerosPrimosFuncional(numeros);
 	}
 
 	/**
