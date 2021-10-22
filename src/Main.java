@@ -12,7 +12,7 @@ public class Main {
 		/**
 		 * Para todo el rango 2 -> numero, aplica un filtro calculando si el resto de la division del numero
 		 * y los valores menores mayores que 1 es igual a 0, solo pasaran el filtro los que sean numeros primos, 
-		 *  por lo que, de ser primo, el valor de res, debe ser igual o menos al numero pasado por parametro	
+		 *  por lo que, de ser primo, el valor de res, debe ser igual o menor al numero pasado por parametro	
 		 * @param numero
 		 * @return
 		 */
@@ -24,16 +24,24 @@ public class Main {
 
 			return true;
 		}
+		
+		public static int sumaPares(int a, int b) {
+			if (a % 2 != 0)
+				return b;
+			if (b % 2 != 0)
+				return a;
+			return a + b;
+		}
 	}
 	
 	public static void main(String[] args) {
 		List<Integer> numeros = Stream.iterate(1, n -> n + 1).limit(10).collect(Collectors.toList());
-		List<String> nombres = new ArrayList<>(Arrays.asList("juan antonio", "pepe andres", "juan manuel", "alex perez"));
+		List<String> nombres = new ArrayList<>(Arrays.asList("juan garcia", "pepe muñoz", "juanma lubian", "alex perez"));
 		
 		numerosPrimosFuncional(numeros);
 		
 //		System.out.println(numeros.stream().filter(x -> x%2==0).mapToInt(x -> x).sum());
-		convierteNombresCamelCase(nombres);
+		sumaNoPrimos(numeros);
 	}
 
 	/**
@@ -48,9 +56,9 @@ public class Main {
 		System.out.println(primos);		
 	}
 	
-	public static void convierteNombresCamelCase(List<String> nombres) {
-//		List<String> nombresCamelCase = nombres.stream().map(x -> x.split(" ")).collect(Collectors.groupingBy(x -> x[1], ));
-//		
-//		System.out.println(nombresCamelCase);
+	public static void sumaNoPrimos(List<Integer> numeros) {
+		int sumaPares = numeros.stream().reduce(0, Operaciones::sumaPares);
+		
+		System.out.println(sumaPares);
 	}
 }
