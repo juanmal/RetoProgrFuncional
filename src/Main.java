@@ -8,16 +8,11 @@ public class Main {
 	
 	public class Operaciones {
 		public static boolean esPrimo(int numero)  {
-			int contador = 2;
-			boolean primo=true;
-
-			while (primo && contador != numero) {
-			  if (numero % contador == 0)
-			    primo = false;
-			  contador++;
-			}
+			for (int i = 2; i < numero; i++)
+	            if (numero % i == 0)
+	                return false;
 			
-			return primo;
+			return true;
 		}
 	}
 	
@@ -26,20 +21,19 @@ public class Main {
 		List<String> nombres = new ArrayList<>(Arrays.asList("juan", "pepe", "juanma", "alex"));
 		
 		numerosPrimosFuncional(numeros);
+		
+		System.out.println(numeros.stream().filter(x -> x%2==0).mapToInt(x -> x).sum());
 	}
 
 	/**
-	 * Hago un recorrido sobre la lista numero mediante el .stream(), le aplico el filtro llamando a una funcion
-	 * para comprobar si es numero primo, y almaceno los elementos del stream que superen el filtro en una lista.
+	 * Recorre la lista "numero" mediante el .stream(), aplica el filtro llamando a una funcion
+	 * para comprobar si es numero primo, y almacena los elementos del stream que superen el filtro en una lista.
 	 * 
 	 * @param numeros
 	 */
 	public static void numerosPrimosFuncional(List<Integer> numeros) {
-		long t_ini = System.currentTimeMillis();
 		List<Integer> primos = numeros.stream().filter(x -> Operaciones.esPrimo(x)).collect(Collectors.toList());
-		long t_fin = System.currentTimeMillis();
-		System.out.println("Tiempo: " + ((t_fin - t_ini)/1000));		
-		System.out.println(primos);
-		
+
+		System.out.println(primos);		
 	}
 }
