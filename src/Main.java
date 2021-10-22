@@ -9,9 +9,14 @@ import java.util.stream.Stream;
 public class Main {
 	
 	public class Operaciones {
+		/**
+		 * Para todo el rango 2 -> numero, aplica un filtro calculando si el resto de la division del numero
+		 * y los valores menores mayores que 1 es igual a 0, solo pasaran el filtro los que sean numeros primos, 
+		 *  por lo que, de ser primo, el valor de res, debe ser igual o menos al numero pasado por parametro	
+		 * @param numero
+		 * @return
+		 */
 		public static boolean esPrimo(int numero)  {
-			// Para todo el rango 2 -> numero, aplica un filtro calculando si el resto de la division del numero y los valores menores mayores que 1 es igual a 0, 
-			// solo pasaran el filtro los que sean numeros primos, por lo que, de ser primo, el valor de res, debe ser igual o menos al numero pasado por parametro		
 			int res = IntStream.rangeClosed(2, numero).filter(x -> numero % x == 0).sum();
 
 			if (res > numero)
